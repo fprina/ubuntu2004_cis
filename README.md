@@ -177,9 +177,21 @@ To use other than random password:
 ```yaml
 ubuntu2004cis_root_password: 'new password'
 ```
+
+### Firewall
+Enable firewall rules
 ```
+ubuntu2004cis_setup_firewall: false
+
+```
+Firewall flavor
+```
+# 3.5.1.x - 3.5.2.x -  3.5.3.x
 ubuntu2004cis_firewall: firewalld
-ubuntu2004cis_firewall: iptables
+# ubuntu2004cis_firewall: iptables
+# ubuntu2004cis_firewall: ufw
+# ubuntu2004cis_firewall: nftables
+
 ```
 
 ### 5.3.1 | PATCH | Ensure password creation requirements are configured

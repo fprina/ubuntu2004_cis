@@ -368,18 +368,6 @@ ubuntu2004cis_time_synchronization_servers:
 # 3.3 TCP Wrappers
 ubuntu2004cis_setup_tcp_wrappers: false
 
-ubuntu2004cis_firewall: firewalld
-# ubuntu2004cis_firewall: iptables
-# ubuntu2004cis_firewall: ufw
-# ubuntu2004cis_firewall: nftables
-
-# 3.5.3.2 | PATCH | Ensure a table exists"
-ubuntu2004cis_nftables_table: filter
-
-ubuntu2004cis_firewall_services:
-  - ssh
-  - dhcpv6-client
-
 # Warning Banner Content (issue, issue.net, motd)
 ubuntu2004cis_warning_banner: |
    Authorized uses only. All activity may be monitored and reported.
@@ -483,3 +471,12 @@ chrony_config_file:
 
 ### Firewall
 ubuntu2004cis_setup_firewall: false
+
+# 3.5.1.x - 3.5.2.x -  3.5.3.x
+ubuntu2004cis_firewall: firewalld
+# ubuntu2004cis_firewall: iptables
+# ubuntu2004cis_firewall: ufw
+# ubuntu2004cis_firewall: nftables
+
+# 3.5.3.2 | PATCH | Ensure a table exists"
+ubuntu2004cis_nftables_table: filter
