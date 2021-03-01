@@ -1,5 +1,5 @@
 ---
-- name: "SCORED | 4.1.1.1 | PATCH | Ensure auditd is installed"
+- name: "RULE 4.1.1.1 | Ensure auditd is installed (Automated)"
   apt:
       name: audispd-plugins
       state: present
@@ -9,12 +9,12 @@
       - ubuntu2004cis_rule_4_1_1_1
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.1.1
 
-- name: "SCORED | 4.1.1.2 | PATCH | Ensure auditd service is enabled"
+- name: "RULE 4.1.1.2 | Ensure auditd service is enabled (Automated)"
   service:
       name: auditd
       state: started
@@ -24,12 +24,12 @@
       - ubuntu2004cis_rule_4_1_1_2
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.1.2
 
-- name: "SCORED | 4.1.1.3 | PATCH | Ensure auditing for processes that start prior to auditd is enabled"
+- name: "RULE 4.1.1.3 | Ensure auditing for processes that start prior to auditd is enabled (Automated)"
   replace:
       dest: /etc/default/grub
       regexp: '^(GRUB_CMDLINE_LINUX=(?!.*audit)\"[^\"]*)(\".*)'
@@ -40,12 +40,12 @@
       - ubuntu2004cis_rule_4_1_1_3
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.1.3
 
-- name: "SCORED | 4.1.1.4 | PATCH | Ensure audit_backlog_limit is sufficient"
+- name: "RULE 4.1.1.4 | Ensure audit_backlog_limit is sufficient (Automated)"
   replace:
       dest: /etc/default/grub
       regexp: '^(GRUB_CMDLINE_LINUX=(?!.*audit_backlog_limit)\"[^\"]*)(\".*)'
@@ -57,12 +57,12 @@
       - ubuntu2004cis_rule_4_1_1_4
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.1.4
 
-- name: "SCORED | 4.1.2.1 | PATCH | Ensure audit log storage size is configured"
+- name: "RULE 4.1.2.1 | Ensure audit log storage size is configured (Automated)"
   lineinfile:
       dest: /etc/audit/auditd.conf
       regexp: "^max_log_file( |=)"
@@ -75,12 +75,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.2.1
 
-- name: "SCORED | 4.1.2.2 | PATCH | Ensure audit logs are not automatically deleted"
+- name: "RULE 4.1.2.2 | Ensure audit logs are not automatically deleted (Automated)"
   lineinfile:
       dest: /etc/audit/auditd.conf
       regexp: "^max_log_file_action"
@@ -93,14 +93,14 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.2.2
 
-- name: "SCORED | 4.1.2.3 | PATCH | Ensure system is disabled when audit logs are full"
+- name: "RULE 4.1.2.3 | Ensure system is disabled when audit logs are full (Automated)"
   block:
-      - name: "SCORED | 4.1.2.3 | PATCH | Ensure system is disabled when audit logs are full | admin_space_left_action"
+      - name: "RULE 4.1.2.3 | Ensure system is disabled when audit logs are full | admin_space_left_action (Automated)"
         lineinfile:
             dest: /etc/audit/auditd.conf
             regexp: "^admin_space_left_action"
@@ -110,7 +110,7 @@
         notify:
             - restart auditd
 
-      - name: "SCORED | 4.1.2.3 | PATCH | Ensure system is disabled when audit logs are full | space_left_action"
+      - name: "RULE 4.1.2.3 | Ensure system is disabled when audit logs are full | space_left_action (Automated)"
         lineinfile:
             dest: /etc/audit/auditd.conf
             regexp: "^space_left_action"
@@ -120,7 +120,7 @@
         notify:
             - restart auditd
 
-      - name: "SCORED | 4.1.2.3 | PATCH | Ensure system is disabled when audit logs are full | action_mail_acct"
+      - name: "RULE 4.1.2.3 | Ensure system is disabled when audit logs are full | action_mail_acct (Automated)"
         lineinfile:
             dest: /etc/audit/auditd.conf
             regexp: "^action_mail_acct"
@@ -133,12 +133,12 @@
       - ubuntu2004cis_rule_4_1_2_3
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.2.3
 
-- name: "SCORED | 4.1.3 | PATCH | Ensure events that modify date and time information are collected"
+- name: "RULE 4.1.3 | Ensure events that modify date and time information are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_3.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_3.rules
@@ -152,12 +152,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.3
 
-- name: "SCORED | 4.1.4 | PATCH | Ensure events that modify user/group information are collected"
+- name: "RULE 4.1.4 | Ensure events that modify user/group information are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_4.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_4.rules
@@ -171,12 +171,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.4
 
-- name: "SCORED | 4.1.5 | PATCH | Ensure events that modify the system's network environment are collected"
+- name: "RULE 4.1.5 | Ensure events that modify the system's network environment are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_5.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_5.rules
@@ -190,12 +190,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.5
 
-- name: "SCORED | 4.1.6 | PATCH | Ensure events that modify the system's Mandatory Access Controls are collected"
+- name: "RULE 4.1.6 | Ensure events that modify the system's Mandatory Access Controls are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_6.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_6.rules
@@ -209,12 +209,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.6
 
-- name: "SCORED | 4.1.7 | PATCH | Ensure login and logout events are collected"
+- name: "RULE 4.1.7 | Ensure login and logout events are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_7.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_7.rules
@@ -228,12 +228,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.7
 
-- name: "SCORED | 4.1.8 | PATCH | Ensure session initiation information is collected"
+- name: "RULE 4.1.8 | Ensure session initiation information is collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_8.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_8.rules
@@ -247,12 +247,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.8
 
-- name: "SCORED | 4.1.9 | PATCH | Ensure discretionary access control permission modification events are collected"
+- name: "RULE 4.1.9 | Ensure discretionary access control permission modification events are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_9.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_9.rules
@@ -266,12 +266,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.9
 
-- name: "SCORED | 4.1.10 | PATCH | Ensure unsuccessful unauthorized file access attempts are collected"
+- name: "RULE 4.1.10 | Ensure unsuccessful unauthorized file access attempts are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_10.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_10.rules
@@ -285,21 +285,21 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.10
 
-- name: "SCORED | 4.1.11 | PATCH | Ensure use of privileged commands is collected"
+- name: "RULE 4.1.11 | Ensure use of privileged commands is collected (Automated)"
   block:
 
-      - name: "SCORED | 4.1.11 | PATCH | Get list of setuid/setguid binaries"
+      - name: "RULE 4.1.11 | Get list of setuid/setguid binaries (Automated)"
         shell: for i in  $(df | grep '^/dev' | awk '{ print $NF }'); do find $i -xdev -type f -perm -4000 -o -type f -perm -2000 2>/dev/null; done
         register: priv_procs
         changed_when: false
         check_mode: false
 
-      - name: "SCORED | 4.1.11 | PATCH | Ensure use of privileged commands is collected"
+      - name: "RULE 4.1.11 | Ensure use of privileged commands is collected (Automated)"
         template:
             src: audit/ubuntu2004cis_rule_4_1_11.rules.j2
             dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_11.rules
@@ -313,12 +313,12 @@
       - ubuntu2004cis_rule_4_1_11
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.11
 
-- name: "SCORED | 4.1.12 | PATCH | Ensure successful file system mounts are collected"
+- name: "RULE 4.1.12 | Ensure successful file system mounts are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_12.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_12.rules
@@ -332,12 +332,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.12
 
-- name: "SCORED | 4.1.13 | PATCH | Ensure file deletion events by users are collected"
+- name: "RULE 4.1.13 | Ensure file deletion events by users are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_13.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_13.rules
@@ -351,12 +351,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.13
 
-- name: "SCORED | 4.1.14 | PATCH | Ensure changes to system administration scope (sudoers) is collected"
+- name: "RULE 4.1.14 | Ensure changes to system administration scope (sudoers) is collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_14.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_14.rules
@@ -370,12 +370,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.14
 
-- name: "SCORED | 4.1.15 | PATCH | Ensure system administrator actions (sudolog) are collected"
+- name: "RULE 4.1.15 | Ensure system administrator actions (sudolog) are collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_15.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_15.rules
@@ -389,12 +389,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.15
 
-- name: "SCORED | 4.1.16 | PATCH | Ensure kernel module loading and unloading is collected"
+- name: "RULE 4.1.16 | Ensure kernel module loading and unloading is collected (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_16.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_16.rules
@@ -408,12 +408,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.16
 
-- name: "SCORED | 4.1.17 | PATCH | Ensure the audit configuration is immutable"
+- name: "RULE 4.1.17 | Ensure the audit configuration is immutable (Automated)"
   template:
       src: audit/ubuntu2004cis_rule_4_1_17.rules.j2
       dest: /etc/audit/rules.d/ubuntu2004cis_rule_4_1_17.rules
@@ -427,12 +427,12 @@
       - restart auditd
   tags:
       - level2
-      - scored
+      - automated
       - patch
       - auditd
       - rule_4.1.17
 
-- name: "SCORED | 4.2.1.1 | PATCH | Ensure rsyslog or is installed"
+- name: "RULE 4.2.1.1 | Ensure rsyslog or is installed (Automated)"
   apt:
       name: rsyslog
       state: present
@@ -442,12 +442,12 @@
       - ubuntu2004cis_syslog == "rsyslog"
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.2.1.1
 
-- name: "SCORED | 4.2.1.2 | PATCH | Ensure rsyslog Service is enabled"
+- name: "RULE 4.2.1.2 | Ensure rsyslog Service is enabled (Automated)"
   service:
       name: rsyslog
       enabled: yes
@@ -457,25 +457,25 @@
       - ubuntu2004cis_syslog == "rsyslog"
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.2.1.2
 
-- name: "NOTSCORED | 4.2.1.3 | PATCH | Ensure logging is configured"
+- name: "RULE 4.2.1.3 | Ensure logging is configured (Manual)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_4_2_1_3
   tags:
       - level1
-      - notscored
+      - manual
       - patch
       - syslog
       - rule_4.2.1.3
       - notimplemented
 
-- name: "SCORED | 4.2.1.4 | PATCH | Ensure rsyslog default file permissions configured"
+- name: "RULE 4.2.1.4 | Ensure rsyslog default file permissions configured (Automated)"
   lineinfile:
       dest: /etc/rsyslog.conf
       regexp: '^\$FileCreateMode'
@@ -484,38 +484,38 @@
       - ubuntu2004cis_rule_4_2_1_4
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.2.1.4
 
-- name: "SCORED | 4.2.1.5 | PATCH | Ensure rsyslog is configured to send logs to a remote log host"
+- name: "RULE 4.2.1.5 | Ensure rsyslog is configured to send logs to a remote log host (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_4_2_1_5
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.2.1.5
       - notimplemented
 
-- name: "NOTSCORED | 4.2.1.6 | PATCH | Ensure remote rsyslog messages are only accepted on designated log hosts."
+- name: "RULE 4.2.1.6 | Ensure remote rsyslog messages are only accepted on designated log hosts. (Manual)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_4_2_1_6
   tags:
       - level1
-      - notscored
+      - manual
       - patch
       - syslog
       - rule_4.2.1.6
       - notimplemented
 
-- name: "SCORED | 4.2.2.1 | PATCH | Ensure journald is configured to send logs to rsyslog"
+- name: "RULE 4.2.2.1 | Ensure journald is configured to send logs to rsyslog (Automated)"
   lineinfile:
     dest: /etc/systemd/journald.conf
     regexp: "(#)?ForwardToSyslog=(yes|no)"
@@ -527,12 +527,12 @@
     - restart journald
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.2.2.1
 
-- name: "SCORED | 4.2.2.2 | PATCH | Ensure journald is configured to compress large log files"
+- name: "RULE 4.2.2.2 | Ensure journald is configured to compress large log files (Automated)"
   lineinfile:
     dest: /etc/systemd/journald.conf
     regexp: "(#)?Compress=(yes|no)"
@@ -543,12 +543,12 @@
     - restart journald
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.2.2.2
 
-- name: "SCORED | 4.2.2.3 | PATCH | Ensure journald is configured to write logfiles to persistent disk"
+- name: "RULE 4.2.2.3 | Ensure journald is configured to write logfiles to persistent disk (Automated)"
   lineinfile:
     dest: /etc/systemd/journald.conf
     regexp: "(#)?Storage=(auto|persistent)"
@@ -559,12 +559,12 @@
     - restart journald
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.2.2.3
 
-- name: "SCORED | 4.2.3 | PATCH | Ensure permissions on all logfiles are configured"
+- name: "RULE 4.2.3 | Ensure permissions on all logfiles are configured (Automated)"
   command: find /var/log -type f -exec chmod g-wx,o-rwx {} +
   changed_when: false
   failed_when: false
@@ -572,25 +572,25 @@
       - ubuntu2004cis_rule_4_2_3
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.2.3
 
-- name: "NOTSCORED | 4.3 | PATCH | Ensure logrotate is configured"
+- name: "RULE 4.3 | Ensure logrotate is configured (Manual)"
   block:
-      - name: "NOTSCORED | 4.3 | PATCH | Register logrotate.d files"
+      - name: "RULE 4.3 | Register logrotate.d files (Manual)"
         find:
             paths: /etc/logrotate.d/
         register: log_rotates
 
-      - name: "NOTSCORED | 4.3 | PATCH | Ensure logrotate.conf exists"
+      - name: "RULE 4.3 | Ensure logrotate.conf exists (Manual)"
         file:
             path: /etc/logrotate.conf
             state: touch
         changed_when: false
 
-      - name: "NOTSCORED | 4.3 | PATCH | Ensure logrotate is configured"
+      - name: "RULE 4.3 | Ensure logrotate is configured (Manual)"
         replace:
             path: "{{ item.path }}"
             regexp: '^(\s*)(daily|weekly|monthly|yearly)$'
@@ -602,12 +602,12 @@
       - ubuntu2004cis_rule_4_3
   tags:
       - level1
-      - notscored
+      - manual
       - patch
       - syslog
       - rule_4.3
 
-- name: "SCORED | 4.4 | PATCH | Ensure logrotate assigns appropriate permissions"
+- name: "RULE 4.4 | Ensure logrotate assigns appropriate permissions (Automated)"
   lineinfile:
       state: present
       dest: /etc/logrotate.conf
@@ -617,7 +617,7 @@
       - ubuntu2004cis_rule_4_4
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - syslog
       - rule_4.4

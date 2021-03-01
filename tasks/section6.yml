@@ -1,17 +1,17 @@
 ---
-- name: "NOTSCORED | 6.1.1 | PATCH | Audit system file permissions"
+- name: "RULE 6.1.1 | Audit system file permissions (Manual)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_1_1
   tags:
       - level2
-      - notscored
+      - manual
       - patch
       - rule_6.1.1
       - notimplemented
 
-- name: "SCORED | 6.1.2 | PATCH | Ensure permissions on /etc/passwd are configured"
+- name: "RULE 6.1.2 | Ensure permissions on /etc/passwd are configured (Automated)"
   file:
       dest: /etc/passwd
       owner: root
@@ -21,11 +21,11 @@
       - ubuntu2004cis_rule_6_1_2
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.2
 
-- name: "SCORED | 6.1.3 | PATCH | Ensure permissions on /etc/gshadow- are configured"
+- name: "RULE 6.1.3 | Ensure permissions on /etc/gshadow- are configured (Automated)"
   file:
       dest: /etc/gshadow-
       owner: root
@@ -35,11 +35,11 @@
       - ubuntu2004cis_rule_6_1_3
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.3
 
-- name: "SCORED | 6.1.4 | PATCH | Ensure permissions on /etc/shadow are configured"
+- name: "RULE 6.1.4 | Ensure permissions on /etc/shadow are configured (Automated)"
   file:
       dest: /etc/shadow
       owner: root
@@ -49,11 +49,11 @@
       - ubuntu2004cis_rule_6_1_4
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.4
 
-- name: "SCORED | 6.1.5 | PATCH | Ensure permissions on /etc/group are configured"
+- name: "RULE 6.1.5 | Ensure permissions on /etc/group are configured (Automated)"
   file:
       dest: /etc/group
       owner: root
@@ -63,11 +63,11 @@
       - ubuntu2004cis_rule_6_1_5
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.5
 
-- name: "SCORED | 6.1.6 | PATCH | Ensure permissions on /etc/passwd- are configured"
+- name: "RULE 6.1.6 | Ensure permissions on /etc/passwd- are configured (Automated)"
   file:
       dest: /etc/passwd-
       owner: root
@@ -77,11 +77,11 @@
       - ubuntu2004cis_rule_6_1_6
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.6
 
-- name: "SCORED | 6.1.7 | PATCH | Ensure permissions on /etc/shadow- are configured"
+- name: "RULE 6.1.7 | Ensure permissions on /etc/shadow- are configured (Automated)"
   file:
       dest: /etc/shadow-
       owner: root
@@ -91,11 +91,11 @@
       - ubuntu2004cis_rule_6_1_7
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.7
 
-- name: "SCORED | 6.1.8 | PATCH | Ensure permissions on /etc/group- are configured"
+- name: "RULE 6.1.8 | Ensure permissions on /etc/group- are configured (Automated)"
   file:
       dest: /etc/group-
       owner: root
@@ -105,11 +105,11 @@
       - ubuntu2004cis_rule_6_1_8
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.8
 
-- name: "SCORED | 6.1.9 | PATCH | Ensure permissions on /etc/gshadow are configured"
+- name: "RULE 6.1.9 | Ensure permissions on /etc/gshadow are configured (Automated)"
   file:
       dest: /etc/gshadow
       owner: root
@@ -119,71 +119,71 @@
       - ubuntu2004cis_rule_6_1_9
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.9
 
-- name: "SCORED | 6.1.10 | PATCH | Ensure no world writable files exist"
+- name: "RULE 6.1.10 | Ensure no world writable files exist (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_1_10
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.10
       - notimplemented
 
-- name: "SCORED | 6.1.11 | PATCH | Ensure no unowned files or directories exist"
+- name: "RULE 6.1.11 | Ensure no unowned files or directories exist (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_1_11
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.11
       - notimplemented
 
-- name: "SCORED | 6.1.12 | PATCH | Ensure no ungrouped files or directories exist"
+- name: "RULE 6.1.12 | Ensure no ungrouped files or directories exist (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_1_12
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.1.12
       - notimplemented
 
-- name: "NOTSCORED | 6.1.13 | PATCH | Audit SUID executables"
+- name: "RULE 6.1.13 | Audit SUID executables (Manual)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_1_13
   tags:
       - level1
-      - notscored
+      - manual
       - patch
       - rule_6.1.13
       - notimplemented
 
-- name: "NOTSCORED | 6.1.14 | PATCH | Audit SGID executables"
+- name: "RULE 6.1.14 | Audit SGID executables (Manual)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_1_14
   tags:
       - level1
-      - notscored
+      - manual
       - patch
       - rule_6.1.14
       - notimplemented
 
-- name: "SCORED | 6.2.1 | PATCH | Ensure password fields are not empty"
+- name: "RULE 6.2.1 | Ensure password fields are not empty (Automated)"
   command: passwd -l {{ item }}
   changed_when: false
   failed_when: false
@@ -193,11 +193,11 @@
       - ubuntu2004cis_rule_6_2_1
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.1
 
-- name: "SCORED | 6.2.2 | PATCH | Ensure root is the only UID 0 account"
+- name: "RULE 6.2.2 | Ensure root is the only UID 0 account (Automated)"
   command: passwd -l {{ item }}
   changed_when: false
   failed_when: false
@@ -207,23 +207,23 @@
       - ubuntu2004cis_rule_6_2_2
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.2
 
-- name: "SCORED | 6.2.3 | PATCH | Ensure root PATH Integrity"
+- name: "RULE 6.2.3 | Ensure root PATH Integrity (Automated)"
   block:
-      - name: "SCORED | 6.2.3 | PATCH | Ensure root PATH Integrity (unimplemented)"
+      - name: "RULE 6.2.3 | Ensure root PATH Integrity (unimplemented) (Automated)"
         command: /bin/true
         changed_when: false
         tags:
             - level1
-            - scored
+            - automated
             - patch
             - rule_6.2.3
             - notimplemented
 
-      - name: "SCORED | 6.2.3 | PATCH | Ensure root PATH Integrity (collect paths)"
+      - name: "RULE 6.2.3 | Ensure root PATH Integrity (collect paths) (Automated)"
         shell: |
           set -o pipefail;
           sudopath=($(grep secure_path /etc/sudoers | cut -f2 -d= |cut -f2 -d\"))
@@ -242,11 +242,11 @@
         check_mode: false
         tags:
             - level1
-            - scored
+            - automated
             - patch
             - rule_6.2.3
 
-      - name: "SCORED | 6.2.3 | PATCH | Ensure root PATH Integrity (fix paths)"
+      - name: "RULE 6.2.3 | Ensure root PATH Integrity (fix paths) (Automated)"
         lineinfile:
             dest: /etc/sudoers
             regexp: "(.*secure_path=).*"
@@ -256,25 +256,25 @@
             - fixsudo.stdout_lines[0]
         tags:
             - level1
-            - scored
+            - automated
             - patch
             - rule_6.2.3
   when:
       - ubuntu2004cis_rule_6_2_3
 
-- name: "SCORED | 6.2.4 | PATCH | Ensure all users' home directories exist"
+- name: "RULE 6.2.4 | Ensure all users' home directories exist (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_4
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.4
       - notimplemented
 
-- name: "SCORED | 6.2.5 | PATCH | Ensure users' home directories permissions are 750 or more restrictive"
+- name: "RULE 6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated)"
   shell: |
       for dir in {{ homes_with_perms.stdout }};
       do
@@ -285,35 +285,35 @@
       - homes_with_perms.stdout | length > 0
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.5
 
-- name: "SCORED | 6.2.6 | PATCH | Ensure users own their home directories"
+- name: "RULE 6.2.6 | Ensure users own their home directories (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_6
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.6
       - notimplemented
 
-- name: "SCORED | 6.2.7 | PATCH | Ensure users' dot files are not group or world writable"
+- name: "RULE 6.2.7 | Ensure users' dot files are not group or world writable (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_7
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.7
       - notimplemented
 
-- name: "SCORED | 6.2.8 | PATCH | Ensure no users have .forward files"
+- name: "RULE 6.2.8 | Ensure no users have .forward files (Automated)"
   file:
       state: absent
       dest: "~{{ item }}/.forward"
@@ -322,11 +322,11 @@
       - ubuntu2004cis_rule_6_2_8
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.8
 
-- name: "SCORED | 6.2.9 | PATCH | Ensure no users have .netrc files"
+- name: "RULE 6.2.9 | Ensure no users have .netrc files (Automated)"
   file:
       state: absent
       dest: "~{{ item }}/.netrc"
@@ -335,23 +335,23 @@
       - ubuntu2004cis_rule_6_2_9
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.9
 
-- name: "SCORED | 6.2.10 | PATCH | Ensure users' .netrc Files are not group or world accessible"
+- name: "RULE 6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_10
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.10
       - notimplemented
 
-- name: "SCORED | 6.2.11 | PATCH | Ensure no users have .rhosts files"
+- name: "RULE 6.2.11 | Ensure no users have .rhosts files (Automated)"
   file:
       state: absent
       dest: "~{{ item }}/.rhosts"
@@ -360,78 +360,78 @@
       - ubuntu2004cis_rule_6_2_11
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.11
 
-- name: "SCORED | 6.2.12 | PATCH | Ensure all groups in /etc/passwd exist in /etc/group"
+- name: "RULE 6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_12
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.12
       - notimplemented
 
-- name: "SCORED | 6.2.13 | PATCH | Ensure no duplicate UIDs exist"
+- name: "RULE 6.2.13 | Ensure no duplicate UIDs exist (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_13
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.13
       - notimplemented
 
-- name: "SCORED | 6.2.14 | PATCH | Ensure no duplicate GIDs exist"
+- name: "RULE 6.2.14 | Ensure no duplicate GIDs exist (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_14
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.14
       - notimplemented
 
-- name: "SCORED | 6.2.15 | PATCH | Ensure no duplicate user names exist"
+- name: "RULE 6.2.15 | Ensure no duplicate user names exist (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_15
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.15
       - notimplemented
 
-- name: "SCORED | 6.2.16 | PATCH | Ensure no duplicate group names exist"
+- name: "RULE 6.2.16 | Ensure no duplicate group names exist (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_16
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.16
       - notimplemented
 
-- name: "SCORED | 6.2.17 | PATCH | Ensure shadow group is empty"
+- name: "RULE 6.2.17 | Ensure shadow group is empty (Automated)"
   command: /bin/true
   changed_when: false
   when:
       - ubuntu2004cis_rule_6_2_17
   tags:
       - level1
-      - scored
+      - automated
       - patch
       - rule_6.2.17
       - notimplemented
