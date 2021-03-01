@@ -163,12 +163,12 @@ ubuntu2004cis_time_synchronization_servers:
     config: "minpoll 8"
 
 ```
-### - name: "SCORED | 1.1.5 | PATCH | Ensure noexec option set on /tmp partition"
+### - name: "RULE 1.1.5 | Ensure noexec option set on /tmp partition"
 It is not implemented, noexec for /tmp will disrupt apt. /tmp contains executable scripts during package installation
 ```
 
 ```  
-### 1.5.3 | PATCH | Ensure authentication required for single user mode
+### RULE 1.5.3 | Ensure authentication required for single user mode
 It is disabled by default as it is setting random password for root. To enable it set:
 ```yaml
 ubuntu2004cis_rule_1_5_3: true
@@ -194,7 +194,7 @@ ubuntu2004cis_firewall: firewalld
 
 ```
 
-### 5.3.1 | PATCH | Ensure password creation requirements are configured
+### RULE 5.3.1 | Ensure password creation requirements are configured
 ```
 ubuntu2004cis_pwquality:
   - key: 'minlen'
